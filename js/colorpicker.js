@@ -11,19 +11,16 @@ var luminance = 0;
 rRGB.addEventListener("keyup", function (change) {
     if (rRGB.value) red = Number(rRGB.value);
     displayColorResults();
-    //txtOutput.innerHTML = `(${red}, ${green}, ${blue})`;
 });
 
 gRGB.addEventListener("keyup", function (change) {
     if (gRGB.value) green = Number(gRGB.value);
     displayColorResults();
-    //txtOutput.innerHTML = `(${red}, ${green}, ${blue})`;
 });
 
 bRGB.addEventListener("keyup", function (change) {
     if (bRGB.value) blue = Number(bRGB.value);
     displayColorResults();
-    //txtOutput.innerHTML = `(${red}, ${green}, ${blue})`;
 });
 
 function displayColorResults() {
