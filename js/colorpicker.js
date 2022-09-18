@@ -2,6 +2,7 @@ var rRGB = document.getElementById('rRGB');
 var gRGB = document.getElementById('gRGB');
 var bRGB = document.getElementById('bRGB');
 var txtOutput = document.getElementById('convertedValues');
+var colorDisplay = document.getElementById('colorDisplay');
 
 var red = 0;
 var green = 0;
@@ -25,12 +26,13 @@ bRGB.addEventListener("keyup", function (change) {
 
 function displayColorResults() {
     let totalValue = red + green + blue;
-    console.log(totalValue, red, green, blue);
-    let r = Math.round(10*(1 / totalValue * red))/10;
-    let g = Math.round(10*(1 / totalValue * green))/10;
-    let b = Math.round(10*(1 / totalValue * blue))/10;
+    let r = red == 0 ? 0 : Math.round(10*(1 / totalValue * red))/10;
+    let g = green == 0 ? 0 : Math.round(10*(1 / totalValue * green))/10;
+    let b = blue == 0 ? 0 : Math.round(10*(1 / totalValue * blue))/10;
 
     luminance = Math.max(r, g, b);
     txtOutput.innerHTML = `(${r}, ${g}, ${b}, ${luminance})`;
+
+    colorDisplay.style.backgroundColor = `rgb(${red}, ${green}, ${blue})`; 
 }
 
