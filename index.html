@@ -9,8 +9,34 @@
     <header>
       <h1 class="header">Color Picker</h1>
     </header>
+    <main>
+        <table>
+            <tr>
+                <td>
+                    <label for="rRGB">R (Red)</label>
+                    <input type="text" maxlength="3" id="rRGB" name="rRGB" />
+                </td>
+                <td id="colorDisplay" rowspan="3"></td>
+                <td>(ρ, ɣ, β, L) Equivilent</td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="gRGB">G (Green)</label>
+                    <input type="text" maxlength="3" id="gRGB" name="gRGB" />
+                </td>
+                <td id="convertedValues">Test Data</td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="bRGB">B (Blue)</label>
+                    <input type="text" maxlength="3" id="bRGB" name="bRGB" />
+                </td>
+            </tr>
+        </table>
+    </main>
     <footer>
       Contact Me: <a href="mailto:dkappus@student.cvtc.edu">dkappus@student.cvtc.edu</a>
     </footer>
+    <script src="js/colorpicker.js"></script> 
   </body>
 </html>
