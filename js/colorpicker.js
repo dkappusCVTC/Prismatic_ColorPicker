@@ -1,4 +1,5 @@
-﻿// Declare variables
+﻿// Testing push
+// Declare variables
 var rRGB = document.getElementById('rRGB');
 var gRGB = document.getElementById('gRGB');
 var bRGB = document.getElementById('bRGB');
