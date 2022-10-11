@@ -1,6 +1,4 @@
-﻿// Testing push
-// Tesing Pull
-// Declare variables
+﻿// Declare variables
 var rRGB = document.getElementById('rRGB');
 var gRGB = document.getElementById('gRGB');
 var bRGB = document.getElementById('bRGB');
@@ -10,6 +8,39 @@ var colorDisplay = document.getElementById('colorDisplay');
 var red = 0;
 var green = 0;
 var blue = 0;
+
+// Display function
+function displayColorResults(r, g, b, l) {
+    // Display the values for rho (ρ) as r, gamma (ɣ) as g, beta (β) as b, luminance (L) as l
+    txtOutput.innerHTML = `(${r}, ${g}, ${b}, ${l})`;
+    // Change the background color of the display
+    colorDisplay.style.backgroundColor = `rgb(${red}, ${green}, ${blue})`; 
+}
+
+// Function to convert RGB values 
+function convertToBarycentric() {
+    var luminance = Math.round(10 * (Math.max(red, green, blue) / 255)) / 10;
+    let totalValue = red + green + blue;
+    let r = red === 0 ? 0 : Math.round(10 * (red / totalValue)) / 10;
+    let g = green === 0 ? 0 : Math.round(10 * (green / totalValue)) / 10;
+    let b = blue === 0 ? 0 : Math.round(10 * (blue / totalValue)) / 10;
+    displayColorResults(r, g, b, luminance);
+}
+
+// Alert customer of improper input
+function improperInput(inField) {
+    let fieldName = '';
+    if (inField.id === 'rRGB') {
+        fieldName = 'R';
+    } else if (inField.id == 'gRGB') {
+        fieldName = 'G';
+    } else {
+        fieldName = 'B';
+    }
+    alert(`Please enter a proper value for '${fieldName}'`);
+    inField.value = '';
+    return; 
+}
 
 // Red value field listener
 rRGB.addEventListener("keyup", function () {
@@ -53,34 +84,4 @@ bRGB.addEventListener("keyup", function () {
     convertToBarycentric();
 });
 
-// Function to convert RGB values 
-function convertToBarycentric() {
-    var luminance = Math.round(10 * (Math.max(red, green, blue) / 255)) / 10;
-    let totalValue = red + green + blue;
-    let r = red == 0 ? 0 : Math.round(10 * (red / totalValue)) / 10;
-    let g = green == 0 ? 0 : Math.round(10 * (green / totalValue)) / 10;
-    let b = blue == 0 ? 0 : Math.round(10 * (blue / totalValue)) / 10;
-    displayColorResults(r, g, b, luminance);
-}
 
-// Display function
-function displayColorResults(r, g, b, l) {
-    // Display the values for rho (ρ) as r, gamma (ɣ) as g, beta (β) as b, luminance (L) as l
-    txtOutput.innerHTML = `(${r}, ${g}, ${b}, ${l})`;
-    // Change the background color of the display
-    colorDisplay.style.backgroundColor = `rgb(${red}, ${green}, ${blue})`; 
-}
-
-// Alert customer of improper input
-function improperInput(inField) {
-    let fieldName = '';
-    if (inField.id == 'rRGB') {
-        fieldName = 'R';
-    } else if (inField.id == 'gRGB') {
-        fieldName = 'G';
-    } else {
-        fieldName = 'B';
-    }
-    alert(`Please enter a proper value for '${fieldName}'`);
-    return inField.value = '';
-}
