@@ -32,7 +32,7 @@ function improperInput(inField) {
     let fieldName = '';
     if (inField.id === 'rRGB') {
         fieldName = 'R';
-    } else if (inField.id == 'gRGB') {
+    } else if (inField.id === 'gRGB') {
         fieldName = 'G';
     } else {
         fieldName = 'B';
